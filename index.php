@@ -18,7 +18,18 @@
                 </tr>
                 <?php
                     require_once('modelo.php');
-                    mostrarLibros();
+                    $libros = mostrarLibros();  // Aquí obtenemos el array de libros
+                    // Mostramos los libros en la tabla
+                    if ($libros) {
+                        foreach ($libros as $libro) {
+                            echo "<tr>";
+                            echo "<td><input type=\"checkbox\"></td>";
+                            echo "<td>" . $libro['titulo'] . "</td>";
+                            echo "<td>" . $libro['autor'] . "</td>";
+                            echo "<td>" . ($libro['disponible'] ? 'Sí' : 'No') . "</td>";
+                            echo "</tr>";
+                        }
+                    }
                 ?>
             </table>
         </section>
