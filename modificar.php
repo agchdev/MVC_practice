@@ -8,7 +8,7 @@
 <body>
     <form action="index.php?action=editar" method="post">
         <section>
-            <?php echo "<input type=\"text\" name=\"titulo\" value=".$libro.">"; ?>
+            <?php echo "<input type=\"text\" name=\"titulo\" value=".$libro[0].">"; ?>
             <select name="autor">
                 <?php
                     foreach ($autores as $autor) {
@@ -19,7 +19,7 @@
             <input type="checkbox" name="disponible">
         </section>
         <input type="submit" value="Añadir" name="añadir">
-        <input type="hidden" value="">
+        <?php echo "<input type="hidden" value=\".$libro[1].\" name="id">" ?>
     </form>
 </body>
 </html>
