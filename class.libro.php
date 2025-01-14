@@ -23,6 +23,7 @@
             $sentencia->execute();
             $sentencia->bind_result($this->titulo);
 
+            $sentencia->fetch();
             $libro = $this->titulo;
             return $libro;
         }
