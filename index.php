@@ -1,6 +1,13 @@
 <?php
-    public function modificar(){
-        
+    function modificar(){
+        require_once("modelo.php");
+        if (isset($_POST["borrar"])) {
+            
+        }else if (isset($_POST["modificar"])) {
+            # code...
+        }else if (isset($_POST["añadir"])) {
+            # code...
+        }
     }
 
     if(isset($_REQUEST["action"])){ // Si se ha pulsado un boton

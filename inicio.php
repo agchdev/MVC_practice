@@ -7,9 +7,6 @@
 </head>
 <body>
     <form action="modelo.php?action=ajuste" method="post" enctype="multipart/form-data">
-        <input type="submit" value="Borrar">
-        <input type="submit" value="Modificar">
-        <input type="submit" value="Añadir">
         <section>
             <table>
                 <tr>
@@ -33,6 +30,9 @@
                 ?>
             </table>
         </section>
+        <input type="submit" value="Borrar" name="borrar">
+        <input type="submit" value="Modificar" name="modificar">
+        <input type="submit" value="Añadir" name="añadir">
     </form>
 </body>
 </html>
