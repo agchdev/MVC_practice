@@ -8,7 +8,7 @@
 <body>
     <form action="index.php?action=editar" method="post">
         <section>
-            <input type="text" name="titulo" placeholder="Titulo">
+            <input type="text" name="titulo" placeholder="<?php$autor["nombre"]?>">
             <select name="autor">
                 <?php
                     foreach ($autores as $autor) {

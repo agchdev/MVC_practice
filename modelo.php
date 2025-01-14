@@ -12,6 +12,11 @@
         require_once('class.autor.php');
         $aut = new autor();
         $autores = $aut->obtenerAutores();
+        $autor = $aut->obtenerAutor();
         require_once('modificar.php');
+    }
+
+    function aplicarCambios(String $newTitulo, String $newAutor, String $newDisp){
+
     }
 ?>

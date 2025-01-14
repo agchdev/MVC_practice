@@ -32,6 +32,7 @@
                     $newDisp = $_POST["disponible"];
 
                     require_once("modelo.php");
+                    aplicarCambios($newTitulo, $newAutor, $newDisp);
                 }
             }
         }
