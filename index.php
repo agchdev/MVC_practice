@@ -15,14 +15,36 @@
                 $libros = $_POST["libros"];
                 if(count($libros) == 1){
                     $libro = $libros[0];
+                    modificar($libro);
+                }
             }
         }else if (isset($_POST["añadir"])) {
-            if (isset($_POST["libros"])) {
-                require_once('class.libro.php');
-                $lib = new libro();
-                $libros = $lib->obtenerLibros();  // Aquí obtenemos el array de libros
-                require_once('inicio.php');
+            if (isset($_POST["libros"])) { 
+                // Eliminar espacios
+                if(trim($_POST["libros"]) == ""){
+                    require_once('class.libro.php');
+                    $lib = new libro();
+                    $libros = $lib->obtenerLibros();  // Aquí obtenemos el array de libros
+                    require_once('inicio.php');
+                }else{
+                    $newTitulo = $_POST["libros"];
+                    $newAutor = $_POST["autor"];
+                    $newDisp = $_POST["disponible"];
+
+                    require_once("modelo.php");
+                }
             }
+        }
+    }
+
+    function editar(){
+        if(isset($_POST["titulo"])){
+            require_once('class.libro.php');
+        }else{
+            require_once('class.libro.php');
+            $lib = new libro();
+            $libros = $lib->obtenerLibros();  // Aquí obtenemos el array de libros
+            require_once('inicio.php');
         }
     }
 

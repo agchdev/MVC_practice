@@ -6,12 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="index.php?action=ajuste" method="post">
+    <form action="index.php?action=editar" method="post">
         <section>
             <input type="text" name="titulo" placeholder="Titulo">
             <select name="autor">
-                <option value=""></option>
+                <?php
+                    foreach ($autores as $autor) {
+                        echo "<option value=".$autor["dni"].">".$autor["nombre"]."</option>";
+                    }
+                ?>
             </select>
+            <input type="checkbox" name="disponible">
         </section>
         <input type="submit" value="Añadir" name="añadir">
     </form>

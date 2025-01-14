@@ -13,13 +13,13 @@
 
         public function obtenerAutores(){
             $consulta = "SELECT * FROM autores";
-            $sentencia = $this->conn->getCon()->prepare($consulta);
+            $sentencia = $this->conn->getConn()->prepare($consulta);
             $sentencia->execute();
-            $sentencia->bind_result($this->nombre, $this->dni);
+            $sentencia->bind_result($this->dni, $this->nombre);
 
             $autores = array();
 
-            while($sentencia->fecth()){
+            while($sentencia->fetch()){
                 $autor = array(
                     "nombre" => $this->nombre,
                     "dni" => $this->dni

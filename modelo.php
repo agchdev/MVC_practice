@@ -8,5 +8,10 @@
         require_once('inicio.php');
     }
 
-    function modificar(int $id){}
+    function modificar(int $id){
+        require_once('class.autor.php');
+        $aut = new autor();
+        $autores = $aut->obtenerAutores();
+        require_once('modificar.php');
+    }
 ?>
