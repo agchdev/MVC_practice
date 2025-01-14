@@ -11,8 +11,20 @@
             $this->dni = $d;
         }
 
-        public function obtenerAutor(int $id){
+        public function obtenerAutorID(int $id){
             $consulta = "SELECT * FROM autores WHERE dni = '$id'";
+            $sentencia = $this->conn->getConn()->prepare($consulta);
+            $sentencia->execute();
+            $sentencia->bind_result($this->dni, $this->nombre);
+
+            $autor = array();
+            $autor[] = $this->dni;
+            $autor[] = $this->nombre;
+            return $autor;
+        }
+
+        public function obtenerAutorNOM(String $nom){
+            $consulta = "SELECT * FROM autores WHERE nombre = '$nom'";
             $sentencia = $this->conn->getConn()->prepare($consulta);
             $sentencia->execute();
             $sentencia->bind_result($this->dni, $this->nombre);

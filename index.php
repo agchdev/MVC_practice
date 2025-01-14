@@ -38,9 +38,10 @@
                     $newTitulo = $_POST["libros"];
                     $newAutor = $_POST["autor"];
                     $newDisp = $_POST["disponible"];
+                    $id = $_POST["id"];
 
                     require_once("modelo.php");
-                    aplicarCambios($newTitulo, $newAutor, $newDisp);
+                    aplicarCambios($newTitulo, $newAutor, $newDisp, $id);
                 }
             }else{
                 require_once('class.libro.php');
