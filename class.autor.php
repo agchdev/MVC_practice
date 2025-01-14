@@ -20,7 +20,7 @@
             $autor = array();
             $autor[] = $this->dni;
             $autor[] = $this->nombre;
-            return $autor[];
+            return $autor;
         }
 
         public function obtenerAutores(){

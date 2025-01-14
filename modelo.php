@@ -10,9 +10,11 @@
 
     function modificar(int $id){
         require_once('class.autor.php');
+        require_once('class.libro.php');
         $aut = new autor();
+        $lib = new libro();
         $autores = $aut->obtenerAutores();
-        $autor = $aut->obtenerAutor();
+        $libro = $lib->obtenerLibro($id);
         require_once('modificar.php');
     }
 

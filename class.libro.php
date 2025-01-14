@@ -16,6 +16,16 @@
         }
 
         public function setID(int $i){ $this->id = $i; }
+
+        public function obtenerLibro(int $id){
+            $consulta = "SELECT titulo FROM libros WHERE id = '$id'";
+            $sentencia = $this->conn->getConn()->prepare($consulta);
+            $sentencia->execute();
+            $sentencia->bind_result($this->titulo);
+
+            $libro = $this->titulo;
+            return $libro;
+        }
         
         public function obtenerLibros(){
             $nomAutor = "";

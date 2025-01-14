@@ -15,6 +15,7 @@
                 $libros = $_POST["libros"];
                 if(count($libros) == 1){
                     $libro = $libros[0];
+                    echo $libro;
                     modificar($libro);
                 }
             }
