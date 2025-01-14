@@ -29,19 +29,25 @@
     function editar(){
         if(isset($_POST["añadir"])){      
             if(isset($_POST["titulo"])){
-                if(trim($_POST["libros"]) == ""){
+                if(trim($_POST["titulo"]) == ""){
                     require_once('class.libro.php');
                     $lib = new libro();
                     $libros = $lib->obtenerLibros();  // Aquí obtenemos el array de libros
                     require_once('inicio.php');
                 }else{
-                    $newTitulo = $_POST["libros"];
+                    $newTitulo = $_POST["titulo"];
                     $newAutor = $_POST["autor"];
-                    $newDisp = $_POST["disponible"];
+                    echo "<p>".$newAutor."</p>";
+                    if (isset($_POST["disponible"])) {
+                        $newDisp = true;
+                    }else{
+                        $newDisp = false;
+                    }
                     $id = $_POST["id"];
+                    intval($id);
 
                     require_once("modelo.php");
-                    aplicarCambios($newTitulo, $newAutor, $newDisp, $id);
+                    aplicarCambios($id, $newTitulo, $newAutor, $newDisp);
                 }
             }else{
                 require_once('class.libro.php');

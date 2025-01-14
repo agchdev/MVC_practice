@@ -12,14 +12,14 @@
             <select name="autor">
                 <?php
                     foreach ($autores as $autor) {
-                        echo "<option value=".$autor["dni"].">".$autor["nombre"]."</option>";
+                        echo "<option value=\"".$autor["dni"]."\">".$autor["nombre"]."</option>";
                     }
                 ?>
             </select>
-            <input type="checkbox" name="disponible">
+            <input type="checkbox" name="disponible" value="si">
         </section>
         <input type="submit" value="Añadir" name="añadir">
-        <?php echo "<input type="hidden" value=\".$libro[1].\" name="id">" ?>
+        <?php echo "<input type=\"hidden\" value=\"$libro[1]\" name=\"id\">" ?>
     </form>
 </body>
 </html>

@@ -18,11 +18,12 @@
         require_once('modificar.php');
     }
 
-    function aplicarCambios(String $newTitulo, String $newAutor, int $newDisp, int $id){
+    function aplicarCambios(int $id, String $newTitulo, String $newAutor, bool $newDisp){
         require_once('class.libro.php');
         require_once('class.autor.php');
-        $aut = new autor();
-        $autor = $aut->obtenerAutorNOM($newAutor);
-        $lib = new libro($id, $newTitulo, $autor, $newDisp);
+        $lib = new libro($id, $newTitulo, $newAutor, $newDisp);
+        $lib->modificarLibro();
+        $libros = $lib->obtenerLibros();
+        require_once('inicio.php');
     }
 ?>
