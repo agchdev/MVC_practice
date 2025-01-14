@@ -21,6 +21,14 @@
         }else if (isset($_POST["añadir"])) {
             if (isset($_POST["libros"])) { 
                 // Eliminar espacios
+                
+            }
+        }
+    }
+
+    function editar(){
+        if(isset($_POST["añadir"])){      
+            if(isset($_POST["titulo"])){
                 if(trim($_POST["libros"]) == ""){
                     require_once('class.libro.php');
                     $lib = new libro();
@@ -34,19 +42,14 @@
                     require_once("modelo.php");
                     aplicarCambios($newTitulo, $newAutor, $newDisp);
                 }
+            }else{
+                require_once('class.libro.php');
+                $lib = new libro();
+                $libros = $lib->obtenerLibros();  // Aquí obtenemos el array de libros
+                require_once('inicio.php');
             }
         }
-    }
 
-    function editar(){
-        if(isset($_POST["titulo"])){
-            require_once('class.libro.php');
-        }else{
-            require_once('class.libro.php');
-            $lib = new libro();
-            $libros = $lib->obtenerLibros();  // Aquí obtenemos el array de libros
-            require_once('inicio.php');
-        }
     }
 
     if(isset($_REQUEST["action"])){ // Si se ha pulsado un boton
