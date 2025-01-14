@@ -19,7 +19,8 @@
             <input type="checkbox" name="disponible" value="si">
         </section>
         <input type="submit" value="Añadir" name="añadir">
-        <?php echo "<input type=\"hidden\" value=\"$libro[1]\" name=\"id\">" ?>
+        <!-- Pasar id oculto -->
+        <?php echo "<input type=\"hidden\" value=\"$libro[1]\" name=\"id\">" ?> 
     </form>
 </body>
 </html>
