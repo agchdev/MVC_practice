@@ -1,18 +1,33 @@
 <?php
-    function modificar(){
+    function ajuste(){
         require_once("modelo.php");
         if (isset($_POST["borrar"])) {
-            
+            if (isset($_POST["libros"])) {
+                // Obetener id de los libros seleccionados
+                $libros = $_POST["libros"];
+                foreach ($libros as $libro) {
+                    borrar($libro);
+                }
+
+            }
         }else if (isset($_POST["modificar"])) {
-            # code...
+            if (isset($_POST["libros"])) {
+                $libros = $_POST["libros"];
+                if(count($libros) == 1){
+                    $libro = $libros[0];
+            }
         }else if (isset($_POST["añadir"])) {
-            # code...
+            if (isset($_POST["libros"])) {
+                require_once('class.libro.php');
+                $lib = new libro();
+                $libros = $lib->obtenerLibros();  // Aquí obtenemos el array de libros
+                require_once('inicio.php');
+            }
         }
     }
 
     if(isset($_REQUEST["action"])){ // Si se ha pulsado un boton
         $action = $_REQUEST["action"]; // Creamos la variable de accion
-
         $action(); // Ejecutamos la accion
     }else{
         require_once('class.libro.php');

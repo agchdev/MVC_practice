@@ -14,20 +14,24 @@
             $this->autor = $au;
             $this->disponible = $dis;
         }
+
+        public function setID(int $i){ $this->id = $i; }
         
         public function obtenerLibros(){
-            $sentencia = "SELECT titulo, autor, disponible FROM libros";
+            $nomAutor = "";
+            $sentencia = "SELECT titulo, nombre, disponible, id FROM libros, autores WHERE dni = autor";
             $consulta = $this->conn->getConn()->prepare($sentencia);
             $consulta->execute();
-            $consulta->bind_result($this->titulo, $this->autor, $this->disponible);
+            $consulta->bind_result($this->titulo, $nomAutor, $this->disponible, $this->id);
 
             $libros = array(); // Array para almacenar los libros
             while ($consulta->fetch()) {
                 // Crear un array asociativo para cada libro
                 $libro = array(
                     "titulo" => $this->titulo,
-                    "autor" => $this->autor,
-                    "disponible" => $this->disponible
+                    "autor" => $nomAutor,
+                    "disponible" => $this->disponible,
+                    "id" => $this->id
                 );
 
                 // Añadir el libro al array de libros
@@ -35,6 +39,20 @@
             }
 
             return $libros;
+        }
+
+        public function modificarLibro(){
+            $sentencia = "UPDATE libros SET titulo = ?, autor = ?, disponible = ? WHERE id = ?";
+            $consulta = $this->conn->getConn()->prepare($sentencia);
+            $consulta->bind_param("ssii", $this->titulo, $this->autor, $this->disponible, $this->id);
+            $consulta->execute();
+        }
+
+        public function borrarLibro(){
+            $sentencia = "DELETE FROM libros WHERE id = ?";
+            $consulta = $this->conn->getConn()->prepare($sentencia);
+            $consulta->bind_param("i", $this->id);
+            $consulta->execute();
         }
     }
 ?>
