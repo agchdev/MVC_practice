@@ -24,7 +24,8 @@
             $sentencia->bind_result($this->titulo);
 
             $sentencia->fetch();
-            $libro = $this->titulo;
+            $libro[] = $this->titulo;
+            $libro[] = $id;
             return $libro;
         }
         

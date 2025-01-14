@@ -19,6 +19,7 @@
             <input type="checkbox" name="disponible">
         </section>
         <input type="submit" value="Añadir" name="añadir">
+        <input type="hidden" value="">
     </form>
 </body>
 </html>
